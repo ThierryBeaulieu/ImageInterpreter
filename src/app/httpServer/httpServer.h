@@ -6,6 +6,8 @@
 #include <QTcpSocket>
 #include <QDebug>
 
+#include "../httpParser/httpParser.h"
+
 class HttpServer : public QObject {
     Q_OBJECT
 public:

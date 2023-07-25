@@ -2,9 +2,11 @@ qt_add_executable(imageProc
     mainwindow.ui
     mainwindow.cpp
     httpServer/httpServer.cpp
+    httpParser/httpParser.cpp
     main.cpp
 )
 
+target_link_libraries(imageProc PRIVATE Qt6::Core)
 target_link_libraries(imageProc PRIVATE Qt6::Widgets)
 target_link_libraries(imageProc PRIVATE Qt6::Network)
 
