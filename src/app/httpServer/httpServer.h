@@ -25,6 +25,9 @@ private:
 class Worker {
 public:
     Worker();
+private:
+    unsigned int id;
+    std::thread thread;
 };
 
 class ThreadPool {

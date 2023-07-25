@@ -64,4 +64,5 @@ ThreadPool::ThreadPool(int poolSize)
 {
 }
 
-Worker::Worker(){}
+Worker::Worker(){
+}
