@@ -1,6 +1,4 @@
 #include "httpServer.h"
-#include <chrono>
-#include <thread>
 
 constexpr int PORT = 8080;
 
@@ -41,7 +39,6 @@ void HttpServer::handleRequest(QByteArray clientRequest, QTcpSocket* clientSocke
                             "\r\n"
                             "<html><body><h1>Hello, World!</h1></body></html>";
     } else if (clientRequest.startsWith("GET /sleep HTTP/1.1")){
-        std::this_thread::sleep_for(std::chrono::seconds(5));
         response = "HTTP/1.1 200 OK\r\n"
                             "Content-Type: text/html\r\n"
                             "\r\n"

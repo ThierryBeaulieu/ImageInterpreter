@@ -6,8 +6,6 @@
 #include <QTcpSocket>
 #include <QDebug>
 
-#include <thread>
-
 class HttpServer : public QObject {
     Q_OBJECT
 public:
