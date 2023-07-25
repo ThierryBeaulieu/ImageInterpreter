@@ -4,7 +4,7 @@
 #include <QByteArray>
 
 class HttpContent {
-private:
+public:
     QByteArray body;
     QByteArray header;
 };
@@ -12,7 +12,7 @@ private:
 class HttpParser {
 public:
     HttpParser();
-    void parse(QByteArray httpRequest, const HttpContent& content);
+    static void parse(QByteArray httpRequest, const HttpContent& content);
 };
 
 #endif /* HTTPPARSER */

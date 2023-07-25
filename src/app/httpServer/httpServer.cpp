@@ -32,6 +32,10 @@ void HttpServer::onDataReceived()
 
 void HttpServer::handleRequest(QTcpSocket* clientSocket){
     QByteArray clientRequest = clientSocket->readAll();
+
+    HttpContent content;
+    HttpParser::parse(clientRequest, content);
+
     QByteArray response = "";
     if (clientRequest.startsWith("GET / HTTP/1.1")){
         response = "HTTP/1.1 200 OK\r\n"
