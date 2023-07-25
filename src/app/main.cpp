@@ -1,6 +1,6 @@
 #include <QApplication>
 #include "mainwindow.h"
-#include "matrix/matrix.h"
+#include "bmpWnd/bmpWnd.h"
 
 // Run inside build folder :
 //
@@ -9,14 +9,10 @@
 
 int main(int argc, char *argv[])
 {
-
-    Matrix matrix;
     QApplication a(argc, argv);
 
-    MainWindow w;
+    BmpWnd w;
     w.show();
-
-
 
     return a.exec();
 }
