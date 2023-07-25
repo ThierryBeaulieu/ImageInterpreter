@@ -1,12 +1,14 @@
 #include "httpServer.h"
 
+constexpr int PORT = 8080;
+
 HttpServer::HttpServer(QObject* parent)
     : QObject(parent)
 {
     tcpServer = new QTcpServer(this);
     connect(tcpServer, &QTcpServer::newConnection, this, &HttpServer::onNewConnection);
 
-    if (!tcpServer->listen(QHostAddress::Any, 8080)) {
+    if (!tcpServer->listen(QHostAddress::Any, PORT)) {
         qDebug() << "Failed to start server.";
     } else {
         qDebug() << "Server started on port 8080.";
@@ -25,19 +27,31 @@ void HttpServer::onDataReceived()
     if (!clientSocket)
         return;
 
-    // Read incoming data (HTTP request)
     QByteArray requestData = clientSocket->readAll();
+    handleRequest(requestData, clientSocket);
+}
 
-    // Process the HTTP request and generate HTTP response
-    // For a simple example, you can respond with a basic HTML page
-    QByteArray response = "HTTP/1.1 200 OK\r\n"
-                          "Content-Type: text/html\r\n"
-                          "\r\n"
-                          "<html><body><h1>Hello, World!</h1></body></html>";
+void HttpServer::handleRequest(QByteArray clientRequest, QTcpSocket* clientSocket){
+    QByteArray response = "";
+    if (clientRequest.startsWith("GET / HTTP/1.1")){
+        response = "HTTP/1.1 200 OK\r\n"
+                            "Content-Type: text/html\r\n"
+                            "\r\n"
+                            "<html><body><h1>Hello, World!</h1></body></html>";
+    } else if (clientRequest.startsWith("GET /sleep HTTP/1.1")){
+        response = "HTTP/1.1 200 OK\r\n"
+                            "Content-Type: text/html\r\n"
+                            "\r\n"
+                            "<html><body><h1>Hello sleepy head!</h1></body></html>";
+    } else {
+        response = "HTTP/1.1 200 OK\r\n"
+                            "Content-Type: text/html\r\n"
+                            "\r\n"
+                            "<html><body><h1>Error 404</h1></body></html>";
+    }
 
-    // Send the response back to the client
     clientSocket->write(response);
-
-    // Close the connection after sending the response
     clientSocket->disconnectFromHost();
+
+    qDebug() << clientRequest << Qt::endl;
 }

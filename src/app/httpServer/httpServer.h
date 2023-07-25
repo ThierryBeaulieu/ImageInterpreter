@@ -14,6 +14,7 @@ public:
 private slots:
     void onNewConnection();
     void onDataReceived();
+    void handleRequest(QByteArray clientRequest, QTcpSocket*);
 
 private:
     QTcpServer* tcpServer;
