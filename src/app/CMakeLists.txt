@@ -1,7 +1,7 @@
 qt_add_executable(imageProc
     mainwindow.ui
     mainwindow.cpp
-    bmpWnd/bmpWnd.cpp
+    httpServer/httpServer.cpp
     main.cpp
 )
 

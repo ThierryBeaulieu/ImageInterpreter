@@ -1,6 +1,6 @@
 #include <QApplication>
 #include "mainwindow.h"
-#include "bmpWnd/bmpWnd.h"
+#include "httpServer/httpServer.h"
 
 // Run inside build folder :
 //
@@ -9,10 +9,9 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QCoreApplication app(argc, argv);
 
-    BmpWnd w;
-    w.show();
+    HttpServer httpServer;
 
-    return a.exec();
+    return app.exec();
 }
