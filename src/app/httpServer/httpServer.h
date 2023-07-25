@@ -20,4 +20,11 @@ private:
     QTcpServer* tcpServer;
 };
 
+class ThreadPool {
+public: 
+    ThreadPool(int poolSize);
+private:
+    int poolSize;
+};
+
 #endif /* HTTPSERVER */

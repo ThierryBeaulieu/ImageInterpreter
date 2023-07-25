@@ -58,3 +58,8 @@ void HttpServer::handleRequest(QByteArray clientRequest, QTcpSocket* clientSocke
 
     qDebug() << clientRequest << Qt::endl;
 }
+
+ThreadPool::ThreadPool(int poolSize)
+    :poolSize(poolSize)
+{
+}
