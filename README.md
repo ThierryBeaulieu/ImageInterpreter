@@ -1,6 +1,8 @@
 ## Getting Started
 
-# Dependencies
+## Server
+
+### Dependencies
 
 To start working on this project, you'll need to get at the version `6.3^` of QtBase.
 This can be done using the link : `https://github.com/qt/qtbase`
@@ -9,7 +11,7 @@ Once that this is done, compile QT following the instructions: `https://wiki.qt.
 
 The project also required Cmake with a version `3.16^`
 
-# Run
+### Run
 
 For running the project, use the following command:
 
