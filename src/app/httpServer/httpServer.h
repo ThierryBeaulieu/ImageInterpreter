@@ -6,6 +6,8 @@
 #include <QTcpSocket>
 #include <QDebug>
 
+#include <thread>
+
 class HttpServer : public QObject {
     Q_OBJECT
 public:
@@ -25,6 +27,7 @@ public:
     ThreadPool(int poolSize);
 private:
     int poolSize;
+    std::vector<std::thread> pool;
 };
 
 #endif /* HTTPSERVER */
