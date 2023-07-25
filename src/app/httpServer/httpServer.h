@@ -22,22 +22,4 @@ private:
     QTcpServer* tcpServer;
 };
 
-class Worker {
-public:
-    Worker();
-private:
-    unsigned int id;
-    std::thread thread;
-};
-
-class ThreadPool {
-public: 
-    ThreadPool(int poolSize);
-private:
-    int poolSize;
-    std::vector<Worker> pool;
-};
-
-
-
 #endif /* HTTPSERVER */
