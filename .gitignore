@@ -1,0 +1,8 @@
+
+build/
+
+// Mac files
+.DS_Store
+
+// Vs code
+.vscode/
