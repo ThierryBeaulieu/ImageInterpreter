@@ -63,3 +63,5 @@ ThreadPool::ThreadPool(int poolSize)
     :poolSize(poolSize)
 {
 }
+
+Worker::Worker(){}
