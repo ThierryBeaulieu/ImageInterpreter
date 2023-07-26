@@ -2,6 +2,8 @@
 #define HTTPPARSER
 
 #include <QByteArray>
+#include <QVector>
+#include <QDebug>
 
 class HttpContent {
 public:
