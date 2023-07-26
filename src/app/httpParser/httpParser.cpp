@@ -1,18 +1,28 @@
 #include "httpParser.h"
 
+
+HttpContent::HttpContent(QByteArray header){
+}
+HttpContent::HttpContent(QByteArray header, QByteArray body){
+
+}
+
 HttpParser::HttpParser(){}
 
-void HttpParser::parse(QByteArray httpRequest, const HttpContent& httpContent){
+HttpContent HttpParser::parse(const QByteArray& httpRequest) {
     int delimiterIndex = httpRequest.indexOf("\r\n\r\n");
 
     if (delimiterIndex != -1) {
-        const QByteArray part1 = httpRequest.left(delimiterIndex);
-        const QByteArray part2 = httpRequest.mid(delimiterIndex + 4);
-
+        QByteArray part1 = httpRequest.left(delimiterIndex);
+        QByteArray part2 = httpRequest.mid(delimiterIndex + 4);
+        HttpContent httpcontent(part1, part2);
+        return httpcontent;
     } else {
+        HttpContent httpcontent(httpRequest);
+        return httpcontent;
     }
 }
 
-void HttpParser::handleGet(HttpContent httpContent) { 
+void HttpParser::handleGet(const HttpContent& httpContent) { 
 
 }

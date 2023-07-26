@@ -8,7 +8,9 @@
 
 class HttpContent {
 public:
-    HttpContent() = default;
+    HttpContent(QByteArray header);
+    HttpContent(QByteArray header, QByteArray body);
+private:
     QByteArray body;
     QByteArray header;
 };
@@ -16,8 +18,8 @@ public:
 class HttpParser {
 public:
     HttpParser();
-    static void parse(QByteArray httpRequest, const HttpContent& httpContent);
-    static void handleGet(HttpContent httpContent);
+    static HttpContent parse(const QByteArray& httpRequest);
+    static void handleGet(const HttpContent& httpContent);
 };
 
 #endif /* HTTPPARSER */

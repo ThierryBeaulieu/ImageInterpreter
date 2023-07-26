@@ -33,8 +33,7 @@ void HttpServer::onDataReceived()
 void HttpServer::handleRequest(QTcpSocket* clientSocket){
     QByteArray clientRequest = clientSocket->readAll();
 
-    HttpContent content;
-    HttpParser::parse(clientRequest, content);
+    HttpContent content = HttpParser::parse(clientRequest);
 
     QByteArray response = "";
     if (clientRequest.startsWith("GET / HTTP/1.1")){
