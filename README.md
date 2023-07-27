@@ -4,17 +4,21 @@
 
 ### Dependencies
 
-To start working on this project, you'll need to get at the version `6.3^` of QtBase.
-This can be done using the link : `https://github.com/qt/qtbase`
+First, the version `3.16^` of CMake is necessary.
 
-Once that this is done, compile QT following the instructions: `https://wiki.qt.io/Building_Qt_6_from_Git`
+Second, you'll need to get at the version `6.3^` of QtBase.
 
-The project also required Cmake with a version `3.16^`
+To do so, use the following commands based on those <a src="`https://wiki.qt.io/Building_Qt_6_from_Git`">instructions</a>: 
 
-### Run
+```bash
+$ git clone https://github.com/qt/qtbase.git
+$ git checkout v6.5.2
+$ cd .. && mkdir qtbase-debug-build && cd qtbase
+$ ./configure -debug -prefix ../qtbase-debug-build
+$ cmake --build . --parallel 4
+$ cmake --install .
+```
 
-For running the project, use the following command:
+### Build
 
-`cmake -DCMAKE_PREFIX_PATH="/Path/To/qtbase/qt6base-build/" /source/path/to/repo/imageProc/`
-
-Once that this is done, you can compile the project using the technology that you want.
+To link the depencies together use `cmake build` and use the tools you prefere to build the executable.
