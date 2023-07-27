@@ -4,7 +4,7 @@
 
 // Run inside build folder :
 //
-// cmake -DCMAKE_PREFIX_PATH="/Users/thierry/Desktop/qtbase/qt6base-build/" /Users/thierry/Desktop/ImageInterpreter/ 
+// cmake -DCMAKE_PREFIX_PATH="/Users/thierry/Desktop/qtbase/qt6base-build/" /Users/thierry/Desktop/imageProc/ 
 //
 
 int main(int argc, char *argv[])

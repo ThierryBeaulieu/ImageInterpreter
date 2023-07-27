@@ -45,7 +45,7 @@ void HttpServer::handleRequest(QTcpSocket* clientSocket){
         response = "HTTP/1.1 200 OK\r\n"
                             "Content-Type: text/html\r\n"
                             "\r\n"
-                            "<html><body><h1>Hello sleepy head!</h1></body></html>";
+                            "<html><body><h1>Hello world from sleep request!</h1></body></html>";
     } else {
         response = "HTTP/1.1 200 OK\r\n"
                             "Content-Type: text/html\r\n"

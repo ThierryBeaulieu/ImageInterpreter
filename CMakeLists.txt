@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.16)
 
 project(imageProc VERSION 1.0.0 LANGUAGES CXX)
 
+# Path to qt6 basebuild
+set(CMAKE_PREFIX_PATH "/Users/thierry/Documents/qtbase-debug-build" ${CMAKE_PREFIX_PATH})
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
