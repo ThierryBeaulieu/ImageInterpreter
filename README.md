@@ -19,6 +19,8 @@ $ cmake --build . --parallel 4
 $ cmake --install .
 ```
 
+Once that this is done, change the path `CMAKE_PREFIX_PATH` inside the top level CMakeLists.txt file to your `qtbase-debug-build` path.
+
 ### Build
 
 To link the depencies together use `cmake build` and use the tools you prefere to build the executable.
