@@ -1,8 +1,6 @@
 qt_add_executable(imageProc
     mainwindow.ui
     mainwindow.cpp
-    httpServer/httpServer.cpp
-    httpParser/httpParser.cpp
     main.cpp
 )
 

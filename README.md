@@ -14,6 +14,7 @@ To do so, here's a script to install qt properly
 
 ```bash
 $ git clone https://code.qt.io/qt/qt5.git qt6
+$ git switch v6.6
 $ cd .. && mkdir qt6-debug-build && cd qt6
 $ ./init-repository --module-subset=qtbase,qthttpserver
 $ ./configure -debug -prefix ../qt6-debug-build
