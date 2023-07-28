@@ -12,8 +12,7 @@ int main(int argc, char *argv[])
         return "Hello world";
     });
 
-    const auto port = httpServer.listen(QHostAddress::AnyIPv4);
-    qDebug() << port << Qt::endl;
+    const auto port = httpServer.listen(QHostAddress::LocalHost, 8080);
     if (!port) {
         qWarning() << QCoreApplication::translate("QHttpServerExample",
                                                    "Server failed to listen on a port.");
