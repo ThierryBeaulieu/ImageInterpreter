@@ -2,24 +2,26 @@
 
 ## Server
 
-### Dependencies
+### List of dependencies
 
-First, the version `3.16^` of CMake is necessary.
+Cmake `3.16^` 
 
-Second, you'll need to get at the version `6.3^` of QtBase.
+The Qt6 library with only the following submodules:
+* qtbase
+* qthttpserver
 
-To do so, use the following commands based on those <a src="`https://wiki.qt.io/Building_Qt_6_from_Git`">instructions</a>: 
+To do so, here's a script to install qt properly
 
 ```bash
-$ git clone https://github.com/qt/qtbase.git
-$ git checkout v6.5.2
-$ cd .. && mkdir qtbase-debug-build && cd qtbase
-$ ./configure -debug -prefix ../qtbase-debug-build
+$ git clone https://code.qt.io/qt/qt5.git qt6
+$ cd .. && mkdir qt6-debug-build && cd qt6
+$ ./init-repository --module-subset=qtbase,qthttpserver
+$ ./configure -debug -prefix ../qt6-debug-build
 $ cmake --build . --parallel 4
 $ cmake --install .
 ```
 
-Once that this is done, change the path `CMAKE_PREFIX_PATH` inside the top level CMakeLists.txt file to your `qtbase-debug-build` path.
+Once that this is done, change the path `CMAKE_PREFIX_PATH` inside the top level CMakeLists.txt file to your `qt6-debug-build` path.
 
 ### Build
 

@@ -1,17 +1,22 @@
 #include <QApplication>
 #include "mainwindow.h"
 #include "httpServer/httpServer.h"
-
-// Run inside build folder :
-//
-// cmake -DCMAKE_PREFIX_PATH="/Users/thierry/Desktop/qtbase/qt6base-build/" /Users/thierry/Desktop/imageProc/ 
-//
+#include <QHttpServer>
+#include <Qdebug>
 
 int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
 
-    HttpServer httpServer;
+    QHttpServer httpServer;
+    httpServer.route("/", []() {
+        return "Hello world";
+    });
 
-    return app.exec();
+    const auto port = httpServer.listen(QHostAddress::Any);
+    if (!port) {
+        qWarning() << QCoreApplication::translate("QHttpServerExample",
+                                                  "Server failed to listen on a port.");
+        return -1;
+    }
 }
