@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug QT6 Project",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/Users/thierry/Desktop/imageProc/build/src/app/imageProc.app/Contents/MacOS/imageProc", // Replace with the path to your compiled executable inside the 'build' directory
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [ ],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "build QT6 Project"
+    }
+  ]
+}

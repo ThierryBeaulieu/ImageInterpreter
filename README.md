@@ -1,18 +1,29 @@
 ## Getting Started
 
-# Dependencies
+## Server
 
-To start working on this project, you'll need to get at the version `6.3^` of QtBase.
-This can be done using the link : `https://github.com/qt/qtbase`
+### List of dependencies
 
-Once that this is done, compile QT following the instructions: `https://wiki.qt.io/Building_Qt_6_from_Git`
+Cmake `3.16^` 
 
-The project also required Cmake with a version `3.16^`
+The Qt6 library with only the following submodules:
+* qtbase
+* qthttpserver
 
-# Run
+To do so, here's a script to install qt properly
 
-For running the project, use the following command:
+```bash
+$ git clone https://code.qt.io/qt/qt5.git qt6
+$ git switch v6.6
+$ cd .. && mkdir qt6-debug-build && cd qt6
+$ ./init-repository --module-subset=qtbase,qthttpserver
+$ ./configure -debug -prefix ../qt6-debug-build
+$ cmake --build . --parallel 4
+$ cmake --install .
+```
 
-`cmake -DCMAKE_PREFIX_PATH="/Path/To/qtbase/qt6base-build/" /source/path/to/repo/imageProc/`
+Once that this is done, change the path `CMAKE_PREFIX_PATH` inside the top level CMakeLists.txt file to your `qt6-debug-build` path.
 
-Once that this is done, you can compile the project using the technology that you want.
+### Build
+
+To link the depencies together use `cmake build` and use the tools you prefere to build the executable.
